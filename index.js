@@ -128,38 +128,43 @@ function addRole() {
 }
 
 function updateRole() {
-    connection.query('SELECT last_name, role.title FROM employee JOIN role ON employee.role_id = role.id', (err, empData) => {
-            console.log(empData)
-            inquirer.prompt([{
-                name: 'lastname',
-                type: 'rawlist',
-                choices: function () {
-                    var lastName = [];
-                    for (var i = 0; i < empData.length; i++) {
-                        lastName.push(empData[i].last_name)
-                    }
-                    return lastName;
-                },
-                message: "What is the Employee's last name?",
+// Select employees with list - use insert into for list 
 
-            }, {
-                name: "role",
-                type: "rawlist",
-                message: "What is the Employees new title? ",
-                choices: viewRole()
-            }]).then(function (update) {
-                    const name = viewRole().indexOf(update.role) + 1
-                    connection.query('UPDATE employee SET WHERE ?', {
-                            last_name: update.lastname
-                        }, {
-                            role_id: roleId
-                        },
-                        console.table(name));
-                    start()
+}
 
-                })
-            })
-    }
+// function updateRole() {
+//     connection.query('SELECT last_name, role.title FROM employee JOIN role ON employee.role_id = role.id', (err, empData) => {
+//             console.log(empData)
+//             inquirer.prompt([{
+//                 name: 'lastname',
+//                 type: 'rawlist',
+//                 choices: function () {
+//                     var lastName = [];
+//                     for (var i = 0; i < empData.length; i++) {
+//                         lastName.push(empData[i].last_name)
+//                     }
+//                     return lastName;
+//                 },
+//                 message: "What is the Employee's last name?",
+
+//             }, {
+//                 name: "role",
+//                 type: "rawlist",
+//                 message: "What is the Employees new title? ",
+//                 choices: viewRole()
+//             }]).then(function (update) {
+//                     const name = viewRole().indexOf(update.role) + 1
+//                     connection.query('UPDATE employee SET WHERE ?', {
+//                             last_name: update.lastname
+//                         }, {
+//                             role_id: roleId
+//                         },
+//                         console.table(name));
+//                     start()
+
+//                 })
+//             })
+//     }
 
     function addEmployee() {
         connection.query('SELECT * FROM role', (err, roleData) => {

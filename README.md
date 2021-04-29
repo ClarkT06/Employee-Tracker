@@ -1,5 +1,8 @@
 # Employee-Tracker
 Employee-Tracker
+
+
+
 This Node application is for a business owner to be able to view and manage departments, roles, and employees in their company in order to organize and plan their business.
 
 The application gives yout the following options:
@@ -11,6 +14,9 @@ View departments, employees, managers
 
 
 Usage
+
+Link to Video of App: https://www.youtube.com/watch?v=6LPvYu0GyrA 
+
 Run node index.js to start the application
 
 Select from the menu to view, add, remove, or update employees, roles, departments, or managers
